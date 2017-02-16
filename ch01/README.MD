@@ -2,28 +2,59 @@
  - 练习1.1
  
  > 查阅你使用的编译器的文档，确定它使用的命名约定，编译并运行第2页的main程序
- ```cpp
- ```
+	```cpp
+	int main(int argc,char* argv[])
+	{
+		return 0;
+	}
+	```
+	```
+	g++ main.cpp -o main.exe
+	main.exe
+	Process exited after 0.041 seconds with return value 0
+	```
+
  - 练习1.2
- 
+
  > 改写程序，让它返回-1，通常-1被当作程序错误的标志，观察你的系统如何处理main返回的-1
  
- ```cpp
- ```
- ```
- ```
+ Process
+	```cpp
+	int main(int argc,char* argv[])
+	{
+		return -1;
+	}
+	```
+	```
+	Process exited after 0.041 seconds with return value 4294967295
+	```
  - 练习1.3
  
  > 编写程序，在标准输出上打印hello,world
  
- ```cpp
- ```
+	```cpp
+	#include<iostream>
+	int main(int argc,char* argv[])
+	{
+		std::cout<<"hello,world"<<std::endl;
+		return 0;
+	}
+	```
+
  - 练习1.4
  
  > 我们的程序使用加法运算符+来将两个数相加。编写程序使用乘法运算符*，来打印两个数的积。
  
- ```cpp
- ```
+	```cpp
+	#include<iostream>
+	int main(int argc,char* argv[])
+	{
+		int a,int b;
+		std::cin>>a>>b;
+		std::cout<<a*b<<std::endl;
+		return 0;
+	}
+	```
  - 练习1.5
  
  > 我们将所有输出操作放在一条很长的语句中。重写程序，将每个运算对象的打印操作放在一条独立的语句中。
@@ -38,10 +69,15 @@
  ```
  如果程序是合法的，它的输出是什么？如果程序不合法，原因何在？应该如何修正？
  
+ 不合法，输出语句在第一行结束。第二、三行前应添加"std::cout"
  
  - [练习1.7](ex_1_7.cpp)
  
  > 编译一个包含不正确的嵌套注释的程序，观察编译器返回的错误信息。
+ 
+ ```
+ ex_1_7.cpp:4:3: error: 'hello' does not name a type */hello 
+ ```
  
  - 练习1.8
  
@@ -54,6 +90,10 @@
  ```
  预测编译这些语句会产生什么样的结果，实际编译这些语句来验证你的答案(编写一个小程序，每次将上述一条语句作为其主体)，改正每个编译错误。
  
+ 第一条：合法
+ 第二条：合法
+ 第三条：error: missing terminating " character
+ 第四条：合法
  
  - [练习1.9](ex_1_9.cpp)
  
@@ -75,6 +115,8 @@
 	for (int i = -100; i < 100; ++i)
 		sum += i;
 	```
+	0
+	
  - [练习1.13](ex_1_13.cpp)
  
  > 使用for循环重做1.4.1节中的所有练习（第11页）。
@@ -82,6 +124,10 @@
  - [练习1.14](ex_1_14.cpp)
  
  > 对比for循环和while循环，两种形式的优缺点各是什么？
+ 
+ for循环：循环次数明确
+ while循环：循环中止条件明确
+ 循环终止条件为循环次数时，for循环与while循环均可以使用
  
  - [练习1.15](ex_1_15.cpp)
  
